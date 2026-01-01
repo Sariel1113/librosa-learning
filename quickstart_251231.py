@@ -20,5 +20,3 @@ beat_mfcc_delta = librosa.util.sync(np.vstack([mfcc, mfcc_delta]), beat_frames)
 chromagram = librosa.feature.chroma_cqt(y=y_harmonic, sr=sr)
 beat_chroma = librosa.util.sync(chromagram, beat_frames, aggregate=np.median)
 beat_features = np.vstack([beat_chroma, beat_mfcc_delta])
-
-print
