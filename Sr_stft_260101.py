@@ -9,9 +9,9 @@ y, sr = librosa.load(music, sr=None, offset=4.9, duration=1)
 
 # 2. 【核心优化】减小窗口以应对扫频信号，提高时间分辨率，防止能量散开产生蓝点
 # n_fft 设为 1024 或 2048，对于 2.5kHz 绰绰有余
-n_fft = 4096
+n_fft = 8096
 hop_length = 128 # 保持步长小，让斜线平滑
-win_length = 256
+win_length = 1024
 
 D = librosa.stft(y, n_fft=n_fft, hop_length=hop_length, win_length=win_length, window='hamming')
 S_db = librosa.amplitude_to_db(np.abs(D), ref=np.max)
