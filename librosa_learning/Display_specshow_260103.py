@@ -25,7 +25,7 @@ print(f"频率 {freq_threshold}Hz 对应的矩阵行索引是: {idx_threshold}")
 D_enhanced = D.copy()
 # 【核心修改步骤】
 # 将 idx_threshold 行以后的所有数据（高频部分）乘以 5 倍
-D_enhanced[idx_threshold:, :] = D_enhanced[idx_threshold:, :] * 0.05
+D_enhanced[idx_threshold:, :] = D_enhanced[idx_threshold:, :] * 5.0
 # 5. 还原回声音
 # 因为我们是在原始复数矩阵 D 上修改的，保留了原配相位，所以直接用 istft
 y_enhanced = librosa.istft(D_enhanced)
