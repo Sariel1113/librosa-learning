@@ -32,6 +32,7 @@ gain_db = savgol_filter(gain_db, window_length=151, polyorder=2)
 
 # C. 线性转换
 gain_linear = 10**(gain_db / 20)
+# 在 dB 域（对数域）：我们习惯说“把声音增加 20dB”。在数学上，这是一个加法。在幅度域（线性域）：计算机处理音频波形时，放大是通过乘法实现的。增加 20dB 意味着把波形的振幅扩大 10 倍。
 
 # 5. 应用增益并用 iSTFT 还原
 # 我们保留了 phase，所以声音不会“变调”
